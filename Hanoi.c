@@ -47,7 +47,7 @@ int main()
 	long long n = 0;
 	scanf("%lld", &n);
 
-	long long result = pow(2, n) + 1;
+	long long result = pow(2, n) - 1;
 /*
 You can think about this question like this.
 
