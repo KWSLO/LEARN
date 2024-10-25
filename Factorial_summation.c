@@ -13,6 +13,18 @@ void clear(int a[] , int n)
 	}
 }
 
+void check_carry(int a[])
+{
+	for (int j = 1; j < LEN; j++)
+	{
+		if (a[j] >= 10)
+		{
+			a[j + 1] += a[j] / 10;
+			a[j] %= 10;
+		}
+	}
+}
+
 int main() 
 {
 	int n = 0;
@@ -33,30 +45,16 @@ int main()
 			a[j] *= i;
 		}
 
-		for (int j = 1; j < LEN; j++)
-		{
-			if (a[j] >= 10)
-			{
-				a[j + 1] += a[j] / 10;
-				a[j] %= 10;
-			}
-		}
+		check_carry(a);
 
 		for (int j = 1; j < LEN; j++)   //Start at the lowest point
 		{
 			b[j] += a[j];
 		}
 
-		for (int j = 1; j < LEN; j++)
-		{
-			if (b[j] >= 10)
-			{
-				b[j + 1] += b[j] / 10;
-				b[j] %= 10;
-			}
-		}
+		check_carry(b);
 	}
-	
+
 	int flag = 0;
 	for (int j = LEN - 1; j >= 1; j--)
 	{
@@ -69,4 +67,3 @@ int main()
 
 	return 0;
 }
-
